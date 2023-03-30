@@ -1,5 +1,6 @@
 .anuncios{
-    @include grid(3,5rem)
+    margin-top: 5rem;
+    @include grid(3,2rem)
 }
 
 .anuncio{
@@ -14,10 +15,10 @@
 
     h3{
         margin: 0;
-        font-weight: $regular;
     }
 
     p{
         margin: 0;
+        text-align: justify;
     }
 }
