@@ -59,13 +59,13 @@
                     </div>
 
                     <div class="texto-entrada">
-                        <a href="entrada.html">
+                        <div>
                             <h4>Secretos de un buen Matrimonio</h4>
                             <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Adrian Herrera</span></p>
                             <p>
                                 Consejos para construir una terraza en el techo de tu casa con los mejores materiales y ahorrando dinero.
                             </p>
-                        </a>
+                        </div>
                     </div>
                 </article>
 
@@ -79,13 +79,13 @@
                     </div>
 
                     <div class="texto-entrada">
-                        <a href="entrada.html">
+                        <div>
                             <h4>Introduccion al Catolicismo</h4>
                             <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Alejandro Pacheco</span></p>
                             <p>
                                 Maximiza el espacio en tu hogar con esta guía, aprende a combinar muebles y colores para darle vida a tu espacio.
                             </p>
-                        </a>
+                        </div>
                     </div>
                 </article>
             </section>
@@ -102,8 +102,17 @@
         </div>
     </main>
 
-    <footer>
-        
+    <footer class="footer">
+        <div>
+            <a href="/index.php"><h2>Basílica de San Pedro</h2></a>
+            <p>Todos los derechos reservados.</p>
+        </div>
+        <nav class="navegacion">
+            <a href="#">¿Quienés Somos?</a>
+            <a href="#">Nuestros Servicios</a>
+            <a href="#">Contacto</a>
+            <a href="#">Crear Cuenta</a>
+        </nav>
     </footer>
 </body>
 </html>
