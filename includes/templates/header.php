@@ -14,7 +14,7 @@
             <nav class="navegacion">
                 <a href="/nosotros.php">¿Quienés Somos?</a>
                 <a href="/servicios.php">Nuestros Servicios</a>
-                <a href="#">Contacto</a>
-                <a href="#">Crear Cuenta</a>
+                <a href="/contacto.php">Contacto</a>
+                <a href="/login.php">Crear Cuenta</a>
             </nav>
     </header>
