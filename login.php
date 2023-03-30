@@ -1,5 +1,6 @@
 <?php
-include "includes/templates/header.php";
+require './includes/funciones.php';
+incluirTemplate('header');
 ?>
 
 <main class="contenedor seccion contenido-centrado">
@@ -17,8 +18,11 @@ include "includes/templates/header.php";
         </fieldset>
         <input type="submit" value="Iniciar Sesión" class="boton boton-verde">
     </form>
+    <div class="centrar-texto">
+        <p>En caso de no tener una cuenta registrada <a href="/sign.php">Puedes crear una aqui</a></p>
+    </div>
 </main>
 
 <?php
-include "includes/templates/footer.php";
+incluirTemplate('footer');
 ?>
