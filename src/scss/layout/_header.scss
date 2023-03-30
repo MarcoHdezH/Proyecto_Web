@@ -1,0 +1,46 @@
+.header{
+    background-color: $amarillo;
+    color: $blanco;
+
+    .titulo-header{
+        padding-left: 3rem;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        h1{
+            text-align: left;
+            font-weight: $bold;
+        }
+        a{
+            text-decoration: none;
+            color: $blanco;
+        }
+    }
+
+    &.inicio{
+        background-position: center center;
+        background-size: cover;
+        @include tablet{
+            min-height: 70rem;
+        }
+        .contenido-header{
+            @include tablet{
+                min-height: 70rem;
+            }
+        }
+    }
+}
+
+.contenido-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    h2{
+        text-align: left;
+        color: $blanco;
+        font-weight: bold;
+        line-height: 2;
+        max-width: 60rem;
+    }
+
+}
