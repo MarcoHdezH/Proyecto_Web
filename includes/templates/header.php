@@ -12,7 +12,7 @@
         <div class="titulo-header">
             <a href="/index.php"><h2>Basílica de San Pedro</h2></a>
             <nav class="navegacion">
-                <a href="#">¿Quienés Somos?</a>
+                <a href="/nosotros.php">¿Quienés Somos?</a>
                 <a href="/servicios.php">Nuestros Servicios</a>
                 <a href="#">Contacto</a>
                 <a href="#">Crear Cuenta</a>

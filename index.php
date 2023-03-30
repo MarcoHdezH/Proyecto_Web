@@ -31,55 +31,55 @@ include "includes/templates/header.php";
 
         <div class="contenedor seccion seccion-inferior">
             <section class="blog">
-                <h3>Nuestro Blog</h3>
+                <h3>Noticias Destacadas</h3>
                 <article class="entrada-blog">
                     <div class="imagen">
                         <picture>
-                            <source srcset="./build/img/blog1.webp" type="image/webp">
-                            <source srcset="./build/img/blog1.jpg" typea="image/jpg">
-                            <img loading="lazy" src="./build/img/blog1.webp" alt="Texto Entrada Blog">
+                            <source srcset="./build/img/noticia1.webp" type="image/webp">
+                            <source srcset="./build/img/noticia1.jpg" typea="image/jpg">
+                            <img loading="lazy" src="./build/img/noticia1.webp" alt="Texto Entrada Blog">
                         </picture>
                     </div>
 
                     <div class="texto-entrada">
-                        <div>
-                            <h4>Secretos de un buen Matrimonio</h4>
-                            <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Adrian Herrera</span></p>
+                        <a href="https://www.vaticannews.va/es/iglesia/news/2023-03/el-celam-pide-oraciones-por-la-recuperacion-del-papa-francisco.html">
+                            <h4>El CELAM pide oraciones por la recuperación del Papa Francisco</h4>
+                            <p class="informacion-meta">Escrito el: <span>30/03/2023</span> por: <span>Vatican News</span></p>
                             <p>
-                                Consejos para construir una terraza en el techo de tu casa con los mejores materiales y ahorrando dinero.
+                                El Consejo Episcopal Latinoamericano y Caribeño (CELAM), en un mensaje firmado por su presidente, monseñor Miguel Cabrejos, pide oraciones por la pronta recuperación del Papa Francisco
                             </p>
-                        </div>
+                        </a>
                     </div>
                 </article>
 
                 <article class="entrada-blog">
                     <div class="imagen">
                         <picture>
-                            <source srcset="./build/img/blog2.webp" type="image/webp">
-                            <source srcset="./build/img/blog2.jpg" typea="image/jpg">
-                            <img loading="lazy" src="./build/img/blog2.webp" alt="Texto Entrada Blog">
+                            <source srcset="./build/img/noticia2.webp" type="image/webp">
+                            <source srcset="./build/img/noticia2.jpg" typea="image/jpg">
+                            <img loading="lazy" src="./build/img/noticia2.webp" alt="Texto Entrada Blog">
                         </picture>
                     </div>
 
                     <div class="texto-entrada">
-                        <div>
-                            <h4>Introduccion al Catolicismo</h4>
-                            <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Alejandro Pacheco</span></p>
+                        <a href="https://www.vaticannews.va/es/iglesia/news/2023-03/jovenes-camino-cuaresmal-nicolas-bottaro-argentina.html">
+                            <h4>Jóvenes en el camino cuaresmal: "Debemos ir juntos, como hermanos"</h4>
+                            <p class="informacion-meta">Escrito el: <span>28/03/2023</span> por: <span>Mireia Bonilla y Sebastián Sansón Ferrari</span></p>
                             <p>
-                                Maximiza el espacio en tu hogar con esta guía, aprende a combinar muebles y colores para darle vida a tu espacio.
+                                ¿Te unes a vivir 40 días inolvidables? ¡Esta Cuaresma puedes marcar la diferencia! Escucha los consejos que ofrecen algunos jóvenes de América Latina y España.
                             </p>
-                        </div>
+                        </a>
                     </div>
                 </article>
             </section>
 
             <section class="testimoniales">
-                <h3>Testimonios</h3>
+                <h3>Versículo de la Semana</h3>
                 <div class="testimonial">
                     <blockquote>
-                        El Personal se comportó de una excelente forma, muy buena atención y la casa que me ofrecieron cumple con todas mis expectativas.
+                        No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios que te fortalezco; siempre te ayudaré; siempre te sustentaré con la diestra de mi justicia.
                     </blockquote>
-                    <p>- Marco Hernandez</p>
+                    <p>- Isaías 41:10</p>
                 </div>
             </section>
         </div>
