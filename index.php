@@ -10,7 +10,7 @@
 <body>
     <header class="header">
         <div class="titulo-header">
-            <a href="/index.php"><h1>Basílica de San Pedro</h1></a>
+            <a href="/index.php"><h2>Basílica de San Pedro</h2></a>
             <nav class="navegacion">
                 <a href="#">¿Quienés Somos?</a>
                 <a href="#">Nuestros Servicios</a>
@@ -21,31 +21,22 @@
 
     <main>
     <section class="contenedor seccion">
-            <h1>Más Sobre Nosotros</h1>
+            <h1>El propósito de nuestra Iglesia</h1>
 
             <div class="iconos-nosotros">
                 <div class="icono">
-                    <img src="./build/img/icono1.svg" alt="Icono Seguridad" loading="lazy">
-                    <h3>Seguridad</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla hic blanditiis tempora beatae
-                        facilis, distinctio corporis modi laboriosam expedita commodi autem praesentium harum odit
-                        asperiores tenetur rem facere deserunt possimus?</p>
+                    <img src="./build/img/apartado1.webp" alt="Icono Seguridad" loading="lazy">
+                    <h3>Encuentrar el propósito que Dios tiene para sus vidas.</h3>
                 </div>
 
                 <div class="icono">
-                    <img src="./build/img/icono2.svg" alt="Icono Precio" loading="lazy">
-                    <h3>Precio</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla hic blanditiis tempora beatae
-                        facilis, distinctio corporis modi laboriosam expedita commodi autem praesentium harum odit
-                        asperiores tenetur rem facere deserunt possimus?</p>
+                    <img src="./build/img/apartado2.webp" alt="Icono Precio" loading="lazy">
+                    <h3>Equiparles para que encuentren dicho propósito.</h3>
                 </div>
 
                 <div class="icono">
-                    <img src="./build/img/icono3.svg" alt="Icono Tiempo" loading="lazy">
-                    <h3>Tiempo</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla hic blanditiis tempora beatae
-                        facilis, distinctio corporis modi laboriosam expedita commodi autem praesentium harum odit
-                        asperiores tenetur rem facere deserunt possimus?</p>
+                    <img src="./build/img/apartado3.webp" alt="Icono Tiempo" loading="lazy">
+                    <h3>Enviarles a cumplir dicho propósito para el que fueron creados por Dios.</h3>
                 </div>
             </div>
         </section>
@@ -63,14 +54,14 @@
                         <picture>
                             <source srcset="./build/img/blog1.webp" type="image/webp">
                             <source srcset="./build/img/blog1.jpg" typea="image/jpg">
-                            <img loading="lazy" src="./build/img/blog1.jpg" alt="Texto Entrada Blog">
+                            <img loading="lazy" src="./build/img/blog1.webp" alt="Texto Entrada Blog">
                         </picture>
                     </div>
 
                     <div class="texto-entrada">
                         <a href="entrada.html">
                             <h4>Secretos de un buen Matrimonio</h4>
-                            <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Admin</span></p>
+                            <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Adrian Herrera</span></p>
                             <p>
                                 Consejos para construir una terraza en el techo de tu casa con los mejores materiales y ahorrando dinero.
                             </p>
@@ -83,14 +74,14 @@
                         <picture>
                             <source srcset="./build/img/blog2.webp" type="image/webp">
                             <source srcset="./build/img/blog2.jpg" typea="image/jpg">
-                            <img loading="lazy" src="./build/img/blog2.jpg" alt="Texto Entrada Blog">
+                            <img loading="lazy" src="./build/img/blog2.webp" alt="Texto Entrada Blog">
                         </picture>
                     </div>
 
                     <div class="texto-entrada">
                         <a href="entrada.html">
                             <h4>Introduccion al Catolicismo</h4>
-                            <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Admin</span></p>
+                            <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Alejandro Pacheco</span></p>
                             <p>
                                 Maximiza el espacio en tu hogar con esta guía, aprende a combinar muebles y colores para darle vida a tu espacio.
                             </p>
@@ -109,7 +100,10 @@
                 </div>
             </section>
         </div>
-
     </main>
+
+    <footer>
+        
+    </footer>
 </body>
 </html>
