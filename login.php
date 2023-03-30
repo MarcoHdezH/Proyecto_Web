@@ -1,10 +1,57 @@
 <?php
 require './includes/funciones.php';
+require './includes/config/database.php';
+
+$db = conectarDB();
+$errores = [];
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $email = mysqli_real_escape_string($db,filter_var($_POST['email'],FILTER_VALIDATE_EMAIL));
+    $password = mysqli_real_escape_string($db,$_POST['password']);
+
+    if(!$email){
+        $errores[]="El Email es Obligatorio"; 
+    }
+    if(!$password){
+        $errores[]="La contraseña es Obligatoria"; 
+    }
+
+    if(empty($errores)){
+        $query = "SELECT * FROM usuario WHERE correo='$email'";
+        $resultado = mysqli_query($db,$query);
+        if($resultado->num_rows){
+            
+            $usuario = mysqli_fetch_assoc($resultado);
+            
+            //Verificar Password
+            $auth=strcmp($password,$usuario['contraseña']);
+
+            if($auth===0){
+                //Manejo de Sessiones
+                session_start();
+                $_SESSION['usuario']=$usuario['correo'];
+                $_SESSION['login']=true;
+                $_SESSION['type']=$usuario['tipo'];
+                header('Location:/admin');
+            }else{
+                $errores[]="Contraseña Incorrecta";
+            }
+        }else{
+            $errores[]="El Usuario no Existe";
+        }
+    }
+}
+
 incluirTemplate('header');
 ?>
 
 <main class="contenedor seccion contenido-centrado">
     <h1>Iniciar Sesión</h1>
+    <?php foreach($errores as $error): ?>
+        <div class="alerta error">
+            <?php echo $error ?>
+        </div>
+    <?php endforeach; ?>
 
     <form method="POST" class="formulario" novalidate>
         <fieldset>
@@ -25,4 +72,5 @@ incluirTemplate('header');
 
 <?php
 incluirTemplate('footer');
+mysqli_close($db);
 ?>

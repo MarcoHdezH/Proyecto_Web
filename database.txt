@@ -8,3 +8,6 @@ CREATE TABLE usuario(
     tipo VARCHAR(5) NOT NULL,
     PRIMARY KEY(id)
 );
+
+INSERT INTO usuario (nombre,apellido,telefono,correo,contraseña,tipo) VALUES ("Marco Antonio","Hernandez","7971209928","marco7245@hotmail.com","MichiTactico01","admin");
+INSERT INTO usuario (nombre,apellido,telefono,correo,contraseña,tipo) VALUES ("Luis Antonio","Ruiz Morales","2462001791","spinarak022_@outlook.com","Contraseña123*","users");
