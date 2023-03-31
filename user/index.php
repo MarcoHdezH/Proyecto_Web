@@ -4,8 +4,8 @@ $auth = estaAutenticado();
 if(!$auth){
     header('Location: /');
 }else{
-    if($_SESSION['type']!='admin'){
-        header('Location: /user/');
+    if($_SESSION['type']!='user'){
+        header('Location: /admin/');
     }
 }
 ?>
@@ -19,6 +19,7 @@ if(!$auth){
     <title>Document</title>
 </head>
 <body>
-    <h1>Iniciaste Sesion como Admin</h1>
+    <h1>Iniciaste Sesion como usuario</h1>
+    
 </body>
 </html>
