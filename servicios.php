@@ -6,7 +6,7 @@ incluirTemplate('header');
 <main>
     <div class="contenedor seccion seccion-inferior">
         <section class="blog">
-            <h3>Servicios Parroquiales</h3>
+            <h1>Servicios Parroquiales</h1>
             <article class="entrada-blog">
                 <div class="imagen">
                     <picture>
@@ -115,7 +115,7 @@ incluirTemplate('header');
             </div>
             <div class="testimonial">
                 <blockquote>
-                    Siento que le hace falta una remodelacion.
+                    Siento que le hace falta una remodelacion al edificio.
                 </blockquote>
                 <p>- Jesus Herrera</p>
             </div>

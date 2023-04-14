@@ -32,7 +32,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $_SESSION['usuario']=$usuario['correo'];
                 $_SESSION['login']=true;
                 $_SESSION['type']=$usuario['tipo'];
-                header('Location:/admin');
+                if($usuario['tipo']==='admin'){
+                    header('Location:/admin');
+                }else{
+                    if($usuario['tipo']==='users'){
+                        header('Location:/user');
+                    }
+                }
             }else{
                 $errores[]="Contraseña Incorrecta";
             }

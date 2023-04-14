@@ -4,8 +4,12 @@ $auth = estaAutenticado();
 if(!$auth){
     header('Location: /');
 }else{
-    if($_SESSION['type']!='user'){
-        header('Location: /admin/');
+    if($_SESSION['type'] ==='users'){
+        header('Location: ');
+    }else{
+        if($_SESSION['type'] ==='admin'){
+            header('Location: /admin');
+        }
     }
 }
 ?>
