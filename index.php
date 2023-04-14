@@ -97,7 +97,6 @@ incluirTemplate('header');
             </section>
         </div>
     </main>
-
 <?php
 incluirTemplate('footer');
 ?>

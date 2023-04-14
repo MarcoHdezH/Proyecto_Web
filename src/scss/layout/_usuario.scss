@@ -1,0 +1,19 @@
+.Usuario{
+    @include grid(2,5rem);
+
+    .imgUsuario{
+        margin-top: 5rem;
+        width: 60%;
+    }
+}
+
+.infoUsuario{
+    h2{
+        text-align: left;
+        font-size: 2rem;
+        font-weight: bold;
+        span{
+            font-weight:normal;
+        }
+    }
+}

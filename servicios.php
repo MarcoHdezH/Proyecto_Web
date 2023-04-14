@@ -1,5 +1,19 @@
 <?php
 require './includes/funciones.php';
+require './includes/config/database.php';
+$auth = estaAutenticado();
+if(!$auth){
+    header('Location: ');
+}else{
+    if($_SESSION['type'] ==='users'){
+        header('Location: /user');
+    }else{
+        if($_SESSION['type'] ==='admin'){
+            header('Location: /admin');
+        }
+    }
+}
+$db = conectarDB();
 incluirTemplate('header');
 ?>
 
@@ -7,102 +21,25 @@ incluirTemplate('header');
     <div class="contenedor seccion seccion-inferior">
         <section class="blog">
             <h1>Servicios Parroquiales</h1>
-            <article class="entrada-blog">
-                <div class="imagen">
-                    <picture>
-                        <source srcset="./build/img/blog1.webp" type="image/webp">
-                        <source srcset="./build/img/blog1.jpg" typea="image/jpg">
-                        <img loading="lazy" src="./build/img/blog1.webp" alt="Texto Entrada Blog">
-                    </picture>
-                </div>
-
-                <div class="texto-entrada">
-                    <div>
-                        <h4>Bodas</h4>
-                        <p>
-                        Es la unión amorosa de un hombre y una mujer con el propósito de la procreación y la crianza de los hijos.
-                        El propósito del matrimonio sirve no solo al cuidado de los hijos, sino también a la "comunión y el bien de la pareja".
-                        </p>
+            <?php $result = mysqli_query($db, "SELECT * FROM servicio") ?>
+            <?php while($row=mysqli_fetch_array($result)):?>
+                <article class="entrada-blog">
+                    <div class="imagen">
+                        <picture>
+                            <source srcset="./build/img/<?php echo $row['imagen']?>.webp" type="image/webp">
+                            <source srcset="./build/img/<?php echo $row['imagen']?>.jpg" typea="image/jpg">
+                            <img loading="lazy" src="./build/img/<?php echo $row['imagen']?>.webp" alt="Texto Entrada Blog">
+                        </picture>
                     </div>
-                </div>
-            </article>
 
-            <article class="entrada-blog">
-                <div class="imagen">
-                    <picture>
-                        <source srcset="./build/img/blog3.webp" type="image/webp">
-                        <source srcset="./build/img/blog3.jpg" typea="image/jpg">
-                        <img loading="lazy" src="./build/img/blog3.webp" alt="Texto Entrada Blog">
-                    </picture>
-                </div>
-
-                <div class="texto-entrada">
-                    <div>
-                        <h4>Bautizo</h4>
-                        <p>
-                        El bautismo invita a toda persona que ha creído y tiene fe en Cristo a que confiese y se arrepienta de sus pecados, esto representa un acto de obediencia a Dios. 
-                        </p>
+                    <div class="texto-entrada">
+                        <div>
+                            <h4><?php echo $row['servicio'] ?></h4>
+                            <p><?php echo $row['descripcion']?></p>
+                        </div>
                     </div>
-                </div>
-            </article>
-
-            <article class="entrada-blog">
-                <div class="imagen">
-                    <picture>
-                        <source srcset="./build/img/blog4.webp" type="image/webp">
-                        <source srcset="./build/img/blog4.jpg" typea="image/jpg">
-                        <img loading="lazy" src="./build/img/blog4.webp" alt="Texto Entrada Blog">
-                    </picture>
-                </div>
-
-                <div class="texto-entrada">
-                    <div>
-                        <h4>Misa Quinceañera</h4>
-                        <p>
-                            Este evento simboliza la presentación de la Quinceañera antes Dios y su comunidad y la promesa de honrar tanto su religión como a sí misma.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <article class="entrada-blog">
-                <div class="imagen">
-                    <picture>
-                        <source srcset="./build/img/blog5.webp" type="image/webp">
-                        <source srcset="./build/img/blog5.jpg" typea="image/jpg">
-                        <img loading="lazy" src="./build/img/blog5.webp" alt="Texto Entrada Blog">
-                    </picture>
-                </div>
-
-                <div class="texto-entrada">
-                    <div>
-                        <h4>Misa Funeraria</h4>
-                        <p>
-                            La misa consiste en la recepción del cuerpo, la liturgia de la palabra, la eucaristía y un acto de encomendar a Dios antes de la última despedida.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <article class="entrada-blog">
-                <div class="imagen">
-                    <picture>
-                        <source srcset="./build/img/blog6.webp" type="image/webp">
-                        <source srcset="./build/img/blog6.jpg" typea="image/jpg">
-                        <img loading="lazy" src="./build/img/blog6.webp" alt="Texto Entrada Blog">
-                    </picture>
-                </div>
-
-                <div class="texto-entrada">
-                    <div>
-                        <h4>Misa de Graduacion</h4>
-                        <!-- <p class="informacion-meta">Escrito el: <span>20/10/2021</span> por: <span>Alejandro Pacheco</span></p> -->
-                        <p>
-                            La Misa de graduación puede ser un momento privilegiado para darle gracias a Dios por esta meta importante que hemos alcanzado en nuestra vida
-                        </p>
-                    </div>
-                </div>
-            </article>
+                </article>
+            <?php endwhile; ?>
         </section>
 
         <section class="testimoniales">

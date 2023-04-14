@@ -1,6 +1,18 @@
 <?php
 require './includes/funciones.php';
 require './includes/config/database.php';
+$auth = estaAutenticado();
+if(!$auth){
+    header('Location: ');
+}else{
+    if($_SESSION['type'] ==='users'){
+        header('Location: /user');
+    }else{
+        if($_SESSION['type'] ==='admin'){
+            header('Location: /admin');
+        }
+    }
+}
 
 $db = conectarDB();
 $errores = [];

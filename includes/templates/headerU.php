@@ -10,9 +10,9 @@
 <body>
     <header class="header">
         <div class="titulo-header">
-            <a href="/admin"><h2>Basílica de San Pedro</h2></a>
+            <a href="/user"><h2>Basílica de San Pedro</h2></a>
             <nav class="navegacion">
-                <h2>Bienvenido: <?php echo $_SESSION['usuario']?> </h2>
+                <h3>Iniciaste Sesión como: <?php echo $_SESSION['usuario']; ?></h3>
             </nav>
         </div>
     </header>

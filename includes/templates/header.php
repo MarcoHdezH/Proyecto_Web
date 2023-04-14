@@ -17,4 +17,5 @@
                 <a href="/contacto.php">Contacto</a>
                 <a href="/login.php">Iniciar Sesión</a>
             </nav>
+        </div>
     </header>
