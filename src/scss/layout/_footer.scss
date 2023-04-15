@@ -18,3 +18,21 @@
     font-weight: $bold;
   }
 }
+
+.footerU{
+  background-color: $grisOscuro;
+  padding: calc($separacion / 4);
+  p {
+    color: $blanco;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  a {
+    color: $blanco;
+    text-decoration: none;
+  }
+  h2 {
+    font-weight: $bold;
+  }
+}

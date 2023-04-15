@@ -42,6 +42,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 //Manejo de Sessiones
                 session_start();
                 $_SESSION['usuario']=$usuario['correo'];
+                $_SESSION['id']=$usuario['id'];
                 $_SESSION['login']=true;
                 $_SESSION['type']=$usuario['tipo'];
                 if($usuario['tipo']==='admin'){

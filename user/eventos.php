@@ -1,12 +1,12 @@
 <?php
-require './includes/funciones.php';
-require './includes/config/database.php';
+require '../includes/funciones.php';
+require '../includes/config/database.php';
 $auth = estaAutenticado();
 if(!$auth){
-    header('Location: ');
+    header('Location: /');
 }else{
     if($_SESSION['type'] ==='users'){
-        header('Location: /user');
+        header('Location: ');
     }else{
         if($_SESSION['type'] ==='admin'){
             header('Location: /admin');
@@ -14,7 +14,7 @@ if(!$auth){
     }
 }
 $db = conectarDB();
-incluirTemplate('header');
+incluirTemplate('headerU');
 ?>
 
 <main>
@@ -26,9 +26,9 @@ incluirTemplate('header');
                 <article class="entrada-blog">
                     <div class="imagen">
                         <picture>
-                            <source srcset="./build/img/<?php echo $row['imagen']?>.webp" type="image/webp">
-                            <source srcset="./build/img/<?php echo $row['imagen']?>.jpg" typea="image/jpg">
-                            <img loading="lazy" src="./build/img/<?php echo $row['imagen']?>.webp" alt="Texto Entrada Blog">
+                            <source srcset="/build/img/<?php echo $row['imagen']?>.webp" type="image/webp">
+                            <source srcset="/build/img/<?php echo $row['imagen']?>.jpg" typea="image/jpg">
+                            <img loading="lazy" src="/build/img/<?php echo $row['imagen']?>.webp" alt="Texto Entrada Blog">
                         </picture>
                     </div>
 
@@ -40,6 +40,10 @@ incluirTemplate('header');
                     </div>
                 </article>
             <?php endwhile; ?>
+            <div class="centrar-texto">
+                <a class="boton-rojo" href="/user/reservacion.php">Reserva hoy mismo</a>
+                <a class="boton-rojo" href="/user">Regresar</a>
+            </div>
         </section>
 
         <section class="testimoniales">
@@ -68,5 +72,5 @@ incluirTemplate('header');
 
 <?php
 mysqli_close($db);
-incluirTemplate('footer');
+incluirTemplate('footerU');
 ?>

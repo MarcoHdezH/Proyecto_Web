@@ -15,3 +15,8 @@ function estaAutenticado(){
     }
     return false;
 }
+
+function cerrarSesion(){
+    session_start();
+    session_destroy();
+}

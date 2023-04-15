@@ -12,7 +12,6 @@ INSERT INTO usuario (nombre,apellido,telefono,correo,contraseña,tipo) VALUES ("
 INSERT INTO usuario (nombre,apellido,telefono,correo,contraseña,tipo) VALUES ("Luis Antonio","Ruiz Morales","2462001791","spinarak022_@outlook.com","Contraseña123*","users");
 
 
-
 CREATE TABLE servicio(
     id INT(11) NOT NULL AUTO_INCREMENT,
     servicio VARCHAR(100) NOT NULL,
@@ -25,3 +24,25 @@ INSERT INTO servicio (servicio,descripcion,imagen) VALUES ("Bautizo","El bautism
 INSERT INTO servicio (servicio,descripcion,imagen) VALUES ("Misa Quinceañera","Este evento simboliza la presentación de la Quinceañera antes Dios y su comunidad y la promesa de honrar tanto su religión como a sí misma.","blog4");
 INSERT INTO servicio (servicio,descripcion,imagen) VALUES ("Misa Funeraria","La misa consiste en la recepción del cuerpo, la liturgia de la palabra, la eucaristía y un acto de encomendar a Dios antes de la última despedida.","blog5");
 INSERT INTO servicio (servicio,descripcion,imagen) VALUES ("Misa de Graduacion","La Misa de graduación puede ser un momento privilegiado para darle gracias a Dios por esta meta importante que hemos alcanzado en nuestra vida","blog6");
+
+
+CREATE TABLE infoReservacion(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    fecha VARCHAR(20) NOT NULL,
+    hora VARCHAR(20) NOT NULL,
+    sacerdote VARCHAR(124) NOT NULL,
+    asistentes INT(11) NOT NULL,
+    usuarioID INT(11) NOT NULL,
+    servicioID INT(11) NOT NULL,
+    PRIMARY KEY(id),
+
+    KEY usuarioID(usuarioID),
+    CONSTRAINT usuario_FK
+    FOREIGN KEY(usuarioID)
+    REFERENCES usuario(id),
+
+    KEY servicioID(servicioID),
+    CONSTRAINT servicio_FK
+    FOREIGN KEY(servicioID)
+    REFERENCES servicio(id)
+);
