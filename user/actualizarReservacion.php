@@ -17,22 +17,32 @@ $db = conectarDB();
 $consulta = mysqli_query($db, "SELECT * FROM servicio");
 incluirTemplate('headerU');
 
-$servicioID = '';
+$id = $_GET['id'];
+$id = filter_var($id,FILTER_VALIDATE_INT);
+$servicio= '';
 $fecha = '';
-$hora = '';
-$asistentes = '';
 $sacerdote = '';
+$asistentes = '';
 $errores = [];
 
+if(!$id){
+    header('Location: /user');
+}else{
+    $result=mysqli_query($db,"SELECT * FROM inforeservacion WHERE id=$id");
+    if($result->num_rows===0){
+        header('Location: /user');
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuarioID = $_SESSION['id'];
     $servicioID = mysqli_real_escape_string($db, $_POST['servicio']);
     $fecha = mysqli_real_escape_string($db, $_POST['fecha']);
-    $hora = '12:00';
-    $asistentes = mysqli_real_escape_string($db, $_POST['asistentes']);
     $sacerdote = mysqli_real_escape_string($db, $_POST['sacerdote']);
+    $asistentes = mysqli_real_escape_string($db, $_POST['asistentes']);
 
     if(!$servicioID){
-        $errores[] = "Debes Escoger un Servicio Parroquial";
+        $errores[] = "El tipo de Servicio Obligatorio";
     }
 
     if(!$fecha){
@@ -45,6 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    if(!$sacerdote){
+        $errores[] = "Es Necesario Elegir a un Sacerdote";
+    }
+
     if(!$asistentes){
         $errores[] = "Debes Especificar el Número de Asistentes al Evento";
     }else{
@@ -53,57 +67,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    if(!$sacerdote){
-        $errores[] = "Debes Escoger un Sacerdote para la Misa";
-    }
-
     if(empty($errores)){
-        //Registrando Datos en BD
-        session_start();
-        $usuarioID= $_SESSION['id'];
-        $query="INSERT INTO infoReservacion(fecha,hora,sacerdote,asistentes,usuarioID,servicioID) VALUES ('$fecha','$hora','$sacerdote','$asistentes','$usuarioID','$servicioID')";
-        $result = mysqli_query($db,$query);
-        header('Location: /user');
+        //Actualizando Datos en BD
+        $query="UPDATE inforeservacion SET fecha='$fecha',sacerdote='$sacerdote',asistentes='$asistentes',servicioID='$servicioID' WHERE id='$id'";
+        mysqli_query($db,$query);
+        header('Location: /user/listaReservaciones.php');
     }
 }
 ?>
 
 <main class="contenedor seccion">
-    <h1>¡Aparta hoy mismo! Registra tus datos de Reservacion.</h1>
+    <h1>Modifica los datos de tu Reservación</h1>
     <?php foreach($errores as $error): ?>
         <div class="alerta error">
             <?php echo $error ?>
         </div>
     <?php endforeach; ?>
-    <form class="formulario" action="/user/reservacion.php" method="POST" enctype="multipart/form-data">
+    <form class="formulario" method="POST" enctype="multipart/form-data">
         <fieldset>
-            <legend>Información de Reservación</legend>
+            <legend>Información de Usuario</legend>
 
-            <label for="servicio">¿Que tipo de evento desea Reservar?</label>
+            <?php
+                $reservacion=mysqli_query($db,"SELECT * FROM inforeservacion WHERE id=$id");
+                $datosReservacion=mysqli_fetch_assoc($reservacion);
+                $servicioID=$datosReservacion['servicioID'];
+                $datoServicio= mysqli_fetch_assoc(mysqli_query($db,"SELECT * FROM servicio WHERE id='$servicioID'"));
+            ?>
+            <input type="hidden" name="id" value="<?php echo $id;?>">
+
+
+            <label for="servicio">Tipo de Servicio:</label>
             <select name="servicio" id="servicio">
                 <option value="" disabled selected>-- Seleccione una Opción --</option>
                 <?php while ($servicio = mysqli_fetch_assoc($consulta)) : ?>
                     <option <?php echo $servicioID===$servicio['id'] ? 'selected' : ''; ?> value="<?php echo $servicio['id'] ?>"><?php echo $servicio['servicio'] ?></option>
                 <?php endwhile; ?>
             </select>
+            <label for="fecha">Fecha:</label>
+            <input type="date"  id="fecha" name="fecha" value="<?php echo $datosReservacion['fecha'] ?>">
 
-            <label for="fecha">Fecha del Evento (Mes):</label>
-            <input type="date" min="2023-04-01" max="2023-12-31" id="fecha" name="fecha" value="<?php echo $fecha ?>">
+            <label for="hora">Hora: (Recuerda que por disposicion, la hora siempre es a las 12:00 horas)</label>
+            <input type="time"  id="hora" name="hora" value="<?php echo $datosReservacion['hora'] ?>" disabled>
 
-            <label for="hora">Hora del Evento (Por Disposición, la hora del evento siempre es Programada a las 12:00 horas)</label>
-            <input type="time" value="12:00" id="hora" name="hora" disabled>
-
-            <label for="asistentes">Numero de Asistentes (Recuerda que la capacidad de Nuestra Iglesia es de 120 Personas)</label>
-            <input type="number" name="asistentes" id="asistentes" value="<?php echo $asistentes ?>">
-
-            <label>¿Quién de nuestros sacerdotes te gustaría que oficiara la misa?</label>
-            <a href="/user/eventos.php"> Conoce a los Miembros de Nuestra Iglesia</a>
+            <label for="sacerdote">Sacerdote:</label>
             <select name="sacerdote">
                 <option value="" disabled selected>-- Seleccione una Opción --</option>
                 <option value="Arcadio Flores Calalpa">Arcadio Flores Calalpa</option>
                 <option value="Jorge Lopez Arciga">Jorge López Árciga</option>
                 <option value="Juan Rangel  Muñoz">Juan Rangel Muñoz</option>
             </select>
+            
+            <label for="asistentes">Numero de Asistentes (Recuerda que la capacidad de Nuestra Iglesia es de 120 Personas):</label>
+            <input type="tel"  id="asistentes" name="asistentes" value="<?php echo $datosReservacion['asistentes']?>">
+
         </fieldset>
         <input type="submit" value="Enviar" class="boton-verde">
     </form>

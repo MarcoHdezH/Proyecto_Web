@@ -29,7 +29,6 @@ incluirTemplate('headerU');
                 <h2>Nombre completo: &nbsp <span> <?php echo $result['nombre']; ?> <?php echo $result['apellido']; ?></span> </h2>
                 <h2>Telefono: &nbsp <span> <?php echo $result['telefono']; ?> </span> </h2>
                 <h2>Correo Electronico: &nbsp <span> <?php echo $result['correo']; ?> </span> </h2>
-                <h2>Contraseña: &nbsp <span> <?php echo $result['contraseña']; ?> </span> </h2>
             </div>
         </div>
     </section>
@@ -37,8 +36,7 @@ incluirTemplate('headerU');
         <a class="boton-amarillo texto-blanco" href="/user/reservacion.php">Crear una Nueva Reservacion</a>
         <a class="boton-amarillo texto-blanco" href="/user/eventos.php">Lista de Eventos Disponibles</a>
         <a class="boton-amarillo texto-blanco" href="/user/listaReservaciones.php">Reservaciones Activas</a>
-        <a class="boton-amarillo-block" href="/user/actualizarUsuario.php?id=<?php echo $reservacion['id'] ?>">Actualizar</a>
-        <a class="boton-amarillo texto-blanco" href="#">Editar Perfil</a>
+        <a class="boton-amarillo-block" href="/user/actualizarUsuario.php?id=<?php echo $_SESSION['id'] ?>">Editar Perfil</a>
         <a class="boton-amarillo texto-blanco" href="/includes/config/destroy.php">Cerrar Sesión</a>
     </section>
 </main>
