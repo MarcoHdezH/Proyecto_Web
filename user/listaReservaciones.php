@@ -58,6 +58,11 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                 $id=$_SESSION['id']; 
                 $query="SELECT * FROM inforeservacion WHERE usuarioID=$id";
                 $conexion = mysqli_query($db,$query);
+                if($conexion->num_rows===0){
+                    echo "<div class='alerta error'>
+                            <h2>¡Vaya! Aun no tienes ninguna Reservacion</h2>
+                          </div>";
+                }
             ?>
             <?php while ($reservacion = mysqli_fetch_assoc($conexion)) : ?>
                 <tr class="centrar-texto">
