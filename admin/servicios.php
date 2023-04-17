@@ -63,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </table>
     </section>
     <a href="/admin/crearServicio.php" class="boton-verde-block">Registrar Nuevo Servicio</a>
+    <a href="/admin/verServicios.php" class="boton-verde-block">Ver Servicios (Más Detalle)</a>
     <a href="/admin" class="boton-verde-block">Regresar</a>
 </main>
 

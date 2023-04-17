@@ -23,8 +23,9 @@ $consulta=mysqli_query($db,$query);
 $infoServicio=mysqli_fetch_assoc($consulta);
 
 //Arreglo con Mensajes de Errores
+$servicioID=$infoServicio['id'];
 $servicio = $infoServicio['servicio'];
-$imagen = $infoServicio['imagen'];
+$imagenServicio = $infoServicio['imagen'];
 $descripcion = $infoServicio['descripcion'];
 $errores = [];
 
@@ -45,10 +46,6 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         $errores[] = "Debes Añadir una descripcion y esta debe ser mayor a 50";
     }
 
-    if(!$imagen['name'] || $imagen['error']){
-        $errores[] = "Debes Añadir una Imagen";
-    }
-
     //Validad Tamaño de Imagenes
     $medida = 2000*100;
     if($imagen['size']>$medida){
@@ -63,14 +60,20 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         if(!is_dir($carpetaImagenes)){
             mkdir($carpetaImagenes);
         }
-        //Subir Imagen
-        $nombreImagen=md5(uniqid(rand(),true));
-        $nombreImagen2=$nombreImagen.".jpg";
 
-        move_uploaded_file($imagen['tmp_name'],$carpetaImagenes.$nombreImagen2);
+        if($imagen['name']){
+            echo "Llegue Aqui xd";
+            unlink($carpetaImagenes.$infoServicio['imagen']);
+            //Subir Imagen
+            $nombreImagen=md5(uniqid(rand(),true));
+            $nombreImagen2=$nombreImagen.".jpg";
+            move_uploaded_file($imagen['tmp_name'],$carpetaImagenes.$nombreImagen2);
+        }else{
+            $nombreImagen2=$infoServicio['imagen'];
+        }
         
         //Insertar en la base de Datos
-        $query = "INSERT INTO servicio (servicio,descripcion,imagen) VALUES ('$servicio','$descripcion','$nombreImagen')";
+        $query = "UPDATE servicio SET servicio='$servicio',imagen='$nombreImagen',descripcion='$descripcion' WHERE id=$servicioID";
         $resultado = mysqli_query($db,$query);
         header('Location: /admin/servicios.php');
     }
@@ -95,7 +98,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
             <label for="imagen">Añade una Imagen para Mostrar:</label>
             <input id="imagen" name="imagen" type="file" accept="image/jpeg, image/png">
-            <img class="imagen-small" src="/build/img/<?php echo $imagen.".jpg" ?>">
+            <img class="imagen-small" src="/build/img/<?php echo $imagenServicio.".jpg" ?>">
 
             <label for="descripcion">Añade una Descripcion del Evento:</label>
             <textarea id="descripcion" name="descripcion" value="<?php echo $descripcion;?>"><?php echo $descripcion;?></textarea>
