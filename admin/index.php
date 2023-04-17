@@ -15,11 +15,18 @@ if(!$auth){
 incluirTemplate('headerA');
 ?>
 
-<main>
+<main class="acciones">
     <h1>¿Qúe Operacion deseas Realizar?</h1>
     <section class="navegacion">
-        <a class="boton-verde" href="#">Administrar Usuarios</a>
-        <a class="boton-verde" href="#">Administrar Reservaciones</a>
-        <a class="boton-verde" href="#">Administrar Servicios</a>
+        <a class="boton-verde" href="/admin/usuarios.php">Administrar Usuarios</a>
+        <a class="boton-verde" href="/admin/reservaciones.php">Administrar Reservaciones</a>
+        <a class="boton-verde" href="/admin/servicios.php">Administrar Servicios</a>
+        <a class="boton-verde" href="/includes/config/destroy.php">Cerrar Sesión</a>
     </section>
 </main>
+
+<?php
+
+incluirTemplate('footerA');
+
+?>

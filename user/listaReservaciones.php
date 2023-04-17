@@ -16,6 +16,7 @@ if (!$auth) {
 $db = conectarDB();
 $usuario = $_SESSION['usuario'];
 incluirTemplate('headerU');
+$band=0;
 $acciones = [];
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
@@ -58,13 +59,9 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                 $id=$_SESSION['id']; 
                 $query="SELECT * FROM inforeservacion WHERE usuarioID=$id";
                 $conexion = mysqli_query($db,$query);
-                if($conexion->num_rows===0){
-                    echo "<div class='alerta error'>
-                            <h2>¡Vaya! Aun no tienes ninguna Reservacion</h2>
-                          </div>";
-                }
             ?>
             <?php while ($reservacion = mysqli_fetch_assoc($conexion)) : ?>
+                <?php $band=1 ?>
                 <tr class="centrar-texto">
                     <?php
                         $servicioID=$reservacion['servicioID'];
@@ -84,14 +81,19 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
                     </td>
                 </tr>
             <?php endwhile ?>
+
+            <?php
+            if($band===0){
+                echo "<div class='alerta error'>
+                        <h2>¡Vaya! Aun no tienes ninguna Reservacion</h2>
+                      </div>";
+            }
+            ?>
         </tbody>
     </table>
-
     </section>
     <a href="/user" class="boton-verde-block">Regresar</a>
-
 </main>
-
 <?php
 mysqli_close($db);
 incluirTemplate('footerU');

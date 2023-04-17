@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php endwhile; ?>
             </select>
             <label for="fecha">Fecha:</label>
-            <input type="date"  id="fecha" name="fecha" value="<?php echo $datosReservacion['fecha'] ?>">
+            <input type="date"  id="fecha" name="fecha" min="<?php echo date("Y");echo "-"; echo date("m"); echo "-";echo date("d");?>" max="2023-12-31" value="<?php echo $datosReservacion['fecha'] ?>">
 
             <label for="hora">Hora: (Recuerda que por disposicion, la hora siempre es a las 12:00 horas)</label>
             <input type="time"  id="hora" name="hora" value="<?php echo $datosReservacion['hora'] ?>" disabled>

@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </select>
 
             <label for="fecha">Fecha del Evento (Mes):</label>
-            <input type="date" min="2023-04-01" max="2023-12-31" id="fecha" name="fecha" value="<?php echo $fecha ?>">
+            <input type="date" min="<?php echo date("Y");echo "-"; echo date("m"); echo "-";echo date("d");?>" max="2023-12-31" id="fecha" name="fecha" value="<?php echo $fecha ?>">
 
             <label for="hora">Hora del Evento (Por Disposición, la hora del evento siempre es Programada a las 12:00 horas)</label>
             <input type="time" value="12:00" id="hora" name="hora" disabled>
