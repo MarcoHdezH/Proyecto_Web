@@ -25,7 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($id) {
         $acciones[] = "Servicio Eliminado Exitosamente";
         $delete = "DELETE FROM servicio WHERE id=$id";
+        $deletereservacion = "DELETE FROM inforeservacion WHERE servicioID=$id";
         $resultado = mysqli_query($db, $delete);
+        mysqli_query($db, $deletereservacion);
         header('Location: ');
     }
 }
