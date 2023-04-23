@@ -24,8 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($id) {
         $acciones[] = "Reservacion Eliminada Exitosamente";
-        $delete = "DELETE FROM inforeservacion WHERE id=$id";
-        $resultado = mysqli_query($db, $delete);
+        $delete = "DELETE FROM inforeservacion WHERE usuarioID=$id";
+        $query = "DELETE FROM usuario WHERE id=$id";
+        mysqli_query($db, $delete);
+        mysqli_query($db, $query);
         header('Location: ');
     }
 }
@@ -33,6 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <main class="contenedor centrar-contenido opUsuario">
     <h1>Lisa de Usuarios Registrados</h1>
+    <?php foreach ($acciones as $accion) : ?>
+        <div class="alerta exito">
+            <?php echo $acciones ?>
+        </div>
+    <?php endforeach; ?>
     <section>
         <table class="propiedades">
             <thead>

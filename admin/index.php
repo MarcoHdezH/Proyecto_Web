@@ -1,13 +1,13 @@
 <?php
 require '../includes/funciones.php';
 $auth = estaAutenticado();
-if(!$auth){
+if (!$auth) {
     header('Location: /');
-}else{
-    if($_SESSION['type'] ==='users'){
+} else {
+    if ($_SESSION['type'] === 'users') {
         header('Location: /user');
-    }else{
-        if($_SESSION['type'] ==='admin'){
+    } else {
+        if ($_SESSION['type'] === 'admin') {
             header('Location: ');
         }
     }
@@ -24,9 +24,11 @@ incluirTemplate('headerA');
         <a class="boton-verde" href="/includes/config/destroy.php">Cerrar Sesión</a>
     </section>
 </main>
+<section class="contenedor centrar-contenido">
+    <h2>Eventos Parroquiales mas Solicitados</h2>
+    <canvas id="grafica"></canvas>
+</section>
 
 <?php
-
 incluirTemplate('footerA');
-
 ?>

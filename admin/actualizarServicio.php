@@ -82,7 +82,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 ?>
 
 <main class="contenedor seccion">
-    <h1>¡Aparta hoy mismo! Registra tus datos de Reservacion.</h1>
+    <h1>Modifica los datos de este Servicio</h1>
     <?php foreach($errores as $error): ?>
         <div class="alerta error">
             <?php echo $error ?>
@@ -106,7 +106,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         </fieldset>
         <input type="submit" value="Enviar" class="boton-verde">
     </form>
-    <a href="/admin" class="boton-rojo-block">Regresar</a>
+    <a href="/admin/servicios.php" class="boton-rojo-block">Regresar</a>
 </main>
 
 <?php

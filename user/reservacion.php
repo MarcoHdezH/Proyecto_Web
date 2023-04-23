@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $usuarioID= $_SESSION['id'];
         $query="INSERT INTO infoReservacion(fecha,hora,sacerdote,asistentes,usuarioID,servicioID) VALUES ('$fecha','$hora','$sacerdote','$asistentes','$usuarioID','$servicioID')";
         $result = mysqli_query($db,$query);
-        header('Location: /user');
+        header('Location: /user/listaReservaciones.php');
     }
 }
 ?>

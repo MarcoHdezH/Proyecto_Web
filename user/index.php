@@ -34,7 +34,7 @@ incluirTemplate('headerU');
     </section>
     <section class="navegacion centrar-texto opUsuario">
         <a class="boton-amarillo texto-blanco" href="/user/reservacion.php">Crear una Nueva Reservacion</a>
-        <a class="boton-amarillo texto-blanco" href="/user/eventos.php">Lista de Eventos Disponibles</a>
+        <a class="boton-amarillo texto-blanco" href="/user/eventos.php">Lista de Eventos Parroquiales</a>
         <a class="boton-amarillo texto-blanco" href="/user/listaReservaciones.php">Reservaciones Activas</a>
         <a class="boton-amarillo-block" href="/user/actualizarUsuario.php?id=<?php echo $_SESSION['id'] ?>">Editar Perfil</a>
         <a class="boton-amarillo texto-blanco" href="/includes/config/destroy.php">Cerrar Sesión</a>

@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 ?>
 
 <main class="contenedor seccion">
-    <h1>¡Aparta hoy mismo! Registra tus datos de Reservacion.</h1>
+    <h1>Crear Nuevo Servicio</h1>
     <?php foreach($errores as $error): ?>
         <div class="alerta error">
             <?php echo $error ?>
